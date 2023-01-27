@@ -36,3 +36,5 @@ on_success:
         Write-Host -ForegroundColor Cyan "Pushing tag"
         git push origin "v$($env:APPVEYOR_BUILD_VERSION)" 2>&1 | %{ "$_" }; if ($LASTEXITCODE -ne 0) { throw "Command returned exit code $LASTEXITCODE" } else { Write-Host "Command finished successfully" }
     }
+- name: Maven Dependency Tree Dependency Submission
+  uses: advanced-security/maven-dependency-submission-action@v2.0.1
